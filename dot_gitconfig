@@ -1,0 +1,18 @@
+[user]
+	username = kxxt
+	mail = rsworktech@outlook.com
+	email = rsworktech@outlook.com
+	name = kxxt
+	signingkey = 17AADD6726DDC58B8EE5881757670CCFA42CCF0A
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
