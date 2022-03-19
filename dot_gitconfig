@@ -22,6 +22,7 @@
 	ci = commit
 	st = status
 	unstage = reset HEAD --
+	pu = push
 [core]
 	editor = nvim
 	autocrlf = false
