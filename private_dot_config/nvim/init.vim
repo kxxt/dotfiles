@@ -63,6 +63,9 @@ set number
 " ref: https://stackoverflow.com/questions/237289/vim-configure-line-number-coloring
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
+" Switch relative line number
+map <C-l> :set invrelativenumber<CR>
+
 " 
 " NERDTree Configurations
 " 
