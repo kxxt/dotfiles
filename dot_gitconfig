@@ -23,6 +23,7 @@
 	st = status
 	unstage = reset HEAD --
 	pu = push
+	a = add
 [core]
 	editor = nvim
 	autocrlf = false
