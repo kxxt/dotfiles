@@ -67,7 +67,7 @@ set number
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " Switch relative line number
-map <C-l> :set invrelativenumber<CR>
+map <leader>l :set invrelativenumber<CR>
 
 " 
 " NERDTree Configurations
@@ -84,3 +84,23 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" format current file
+map <leader>f :call CocAction('format')<CR>
+
+" Show documentation
+" ref: https://github.com/neoclide/coc.nvim/issues/869
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" insert character before cursor using ,sX
+" ref: https://superuser.com/questions/581572/insert-single-character-in-vim
+nmap <silent> ,s "=nr2char(getchar())<cr>P
