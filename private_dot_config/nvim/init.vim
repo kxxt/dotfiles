@@ -104,3 +104,7 @@ endfunction
 " insert character before cursor using ,sX
 " ref: https://superuser.com/questions/581572/insert-single-character-in-vim
 nmap <silent> ,s "=nr2char(getchar())<cr>P
+
+" Close buffer without quitting vim
+" ref: https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
