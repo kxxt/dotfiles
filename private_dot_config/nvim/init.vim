@@ -1,6 +1,9 @@
 " no compatible
 set nocompatible
 
+" enable mouse
+set mouse=a
+
 " Plugins
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
