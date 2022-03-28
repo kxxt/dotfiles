@@ -192,3 +192,10 @@ let g:vista#renderer#icons = {
 nmap <Leader>t <Plug>(coc-translator-p)
 vmap <Leader>t <Plug>(coc-translator-pv)
 
+" resize panes without pain
+" Vertical: Alt + Shift + `-/+`
+" Horizontal: Alt + `-/+`
+nnoremap <A-+> 1<C-w>+
+nnoremap <A-_> 1<C-w>-
+nnoremap <A--> 1<C-w><
+nnoremap <A-=> 1<C-w>>
