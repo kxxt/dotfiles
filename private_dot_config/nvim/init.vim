@@ -24,6 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'yggdroot/indentline'
 Plug 'liuchengxu/vista.vim'
+Plug 'lambdalisue/suda.vim'
 
 call plug#end()
 
