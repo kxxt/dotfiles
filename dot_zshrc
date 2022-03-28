@@ -78,3 +78,8 @@ alias vim='nvim'
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+
+# Universal alias for all shells
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
