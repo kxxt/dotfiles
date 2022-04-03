@@ -199,3 +199,9 @@ nnoremap <A-+> 1<C-w>+
 nnoremap <A-_> 1<C-w>-
 nnoremap <A--> 1<C-w><
 nnoremap <A-=> 1<C-w>>
+
+" copy to system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y 
+nnoremap <leader>Y "*y
+vnoremap <leader>Y "*y
