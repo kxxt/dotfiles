@@ -23,5 +23,7 @@ map Q gq
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
 
+" Use ctrl-v as an ide shortcut in insert mode
+sethandler <C-V> n-v:vim i:ide
 
 " Find more examples here: https://jb.gg/share-ideavimrc
