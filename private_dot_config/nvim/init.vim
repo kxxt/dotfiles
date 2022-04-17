@@ -162,7 +162,7 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " Make <cr> select the first completion item and confirm the completion when no item has been selected
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " Use <C-c> to trigger completion
 inoremap <silent><expr> <C-c> coc#refresh()
