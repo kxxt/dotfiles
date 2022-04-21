@@ -29,3 +29,5 @@
 	autocrlf = false
 [help]
 	autocorrect = true
+[merge]
+	conflictstyle = diff3
