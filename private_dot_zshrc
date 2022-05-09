@@ -31,7 +31,9 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+if [[ -f $ZSH/oh-my-zsh.sh ]]; then
+  source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
@@ -75,9 +77,15 @@ fi
 
 alias vim='nvim'
 
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
+if ! command -v termux-info > /dev/null
+then
+  # Not in termux
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+else
+  eval $(starship init zsh)
+fi
 
 # Universal alias for all shells
 if [ -f ~/.aliases ]; then
