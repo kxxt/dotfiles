@@ -1,3 +1,57 @@
 alias mv='mv -i'
 alias cp='cp -i'
 alias vimconf="nvim ~/.config/nvim/init.vim" 
+alias vim=nvim
+# Replace ls with eza
+alias ls='eza --color=always --group-directories-first --icons=always' # preferred listing
+alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='eza -al --color=always --group-directories-first --icons'  # long format
+alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="eza -a | egrep '^\.'"                                     # show only dotfiles
+alias less='less -R'
+alias gen-riscv64-patch='git diff --no-prefix --relative | tail -n +3  > riscv64.patch'
+
+mkcdir ()
+{
+    mkdir -p -- "$1" &&
+       cd -P -- "$1"
+}
+
+alias rvbuild='extra-riscv64-build -- -d /home/kxxt/Workspaces/arch-riscv/packages/cachedir:/var/cache/pacman/pkg'
+
+xspawn() {
+  sudo systemd-nspawn -aUD /var/lib/archbuild/extra-x86_64/$@
+}
+rspawn() {
+  sudo systemd-nspawn -aUD /var/lib/archbuild/extra-riscv64/$@
+}
+
+aclone(){
+  git clone https://gitlab.archlinux.org/archlinux/packaging/packages/$@
+}
+
+alias gti=git
+alias g=git
+
+
+pull-to-repo() {
+  adb pull "$1" "$2" && \
+  repo-add "$2/$2.db.tar.gz" "$2/$(basename "$1")"
+}
+
+rmvpatch() {
+  g s -c "$1" && rm -r "$1" && g a -- "$1" && g ci -m "rmvpatch: $1
+
+autoreconf no longer needed" && g pu -f && g co master
+}
+
+pastebin() {
+  local file=${1:-/dev/stdin}
+  curl --data-binary @${file} https://paste.rs
+  echo
+}
+
+chinese_count() {
+  local file=${1:-/dev/stdin}
+  perl -CS -p -e 's/[^\s\p{Han}]//g' < "$file" | tr -d ' \t\n' | wc --chars 
+}

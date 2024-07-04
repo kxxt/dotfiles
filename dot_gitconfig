@@ -7,7 +7,7 @@
 [init]
 	defaultBranch = main
 [commit]
-	gpgsign = true
+	gpgsign = false
 [gpg]
 	program = gpg2
 [credential "https://github.com"]
@@ -19,19 +19,30 @@
 [alias]
 	co = checkout
 	br = branch
+	cp = cherry-pick
 	ci = commit
 	st = status
 	unstage = reset HEAD --
 	pu = push
 	a = add
+	s = switch
+	dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+	dft = difftool
 [core]
 	editor = nvim
-	autocrlf = false
-	pager = delta
+	autocrlf = input
+#	pager = delta
 [help]
-	autocorrect = true
+	autocorrect = 50
 [diff]
   colorMoved = default
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [interactive]
   diffFilter = delta --color-only
 [add.interactive]
@@ -42,5 +53,24 @@
   light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [merge]
 	conflictstyle = diff3
+	tool = meld
 [http]
 	postBuffer = 157286400
+	cookiefile = /home/kxxt/.gitcookies
+[color]
+	ui = auto
+[push]
+	autoSetupRemote = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[review "review.lineageos.org"]
+	username = kxxt
+[url "https://invent.kde.org/"]
+	insteadOf = kde:
+[url "ssh://git@invent.kde.org/"]
+	pushInsteadOf = kde:
+[rebase]
+	autoSquash = true
