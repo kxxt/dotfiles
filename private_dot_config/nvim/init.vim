@@ -4,30 +4,6 @@ set nocompatible
 " enable mouse
 set mouse=a
 
-" Plugins
-
-call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-" Use release branch (recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'joshdick/onedark.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
-Plug 'yggdroot/indentline'
-Plug 'liuchengxu/vista.vim'
-Plug 'lambdalisue/suda.vim'
-
-call plug#end()
-
 " Enable True Color in Terminal
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -43,7 +19,7 @@ endif
 " Syntax highlighting
 syntax on
 " Onedark colorscheme
-colorscheme onedark
+" colorscheme onedark
 
 " vim-airline configs
 let g:airline#extensions#tabline#enabled = 1
@@ -88,7 +64,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+" autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " format current file
 map <leader>f :call CocAction('format')<CR>
