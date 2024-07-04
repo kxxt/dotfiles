@@ -10,12 +10,6 @@
 	gpgsign = false
 [gpg]
 	program = gpg2
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
 [alias]
 	co = checkout
 	br = branch
@@ -59,18 +53,28 @@
 	cookiefile = /home/kxxt/.gitcookies
 [color]
 	ui = auto
+[fetch]
+	writeCommitGraph = true
 [push]
 	autoSetupRemote = true
+	useForceIfIncludes = true
+[rebase]
+	autoSquash = true
+	abbreviateCommands = true
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
 [review "review.lineageos.org"]
 	username = kxxt
 [url "https://invent.kde.org/"]
 	insteadOf = kde:
 [url "ssh://git@invent.kde.org/"]
 	pushInsteadOf = kde:
-[rebase]
-	autoSquash = true
