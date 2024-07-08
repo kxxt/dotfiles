@@ -21,6 +21,10 @@ if [ -d "/opt/depot_tools" ]; then
     export PATH="$PATH:/opt/depot_tools"
 fi
 
+# For Ruby
+export GEM_HOME="$(gem env user_gemhome)"
+export PATH="$PATH:$GEM_HOME/bin"
+
 ####### CCACHE #######
 
 # Used by AOSP, not sure if it's used elsewhere
