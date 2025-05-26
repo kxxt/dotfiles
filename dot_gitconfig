@@ -2,12 +2,14 @@
 	username = kxxt
 	mail = rsworktech@outlook.com
 	email = rsworktech@outlook.com
-	name = kxxt
+	name = Levi Zim
 	signingkey = 17AADD6726DDC58B8EE5881757670CCFA42CCF0A
 [init]
 	defaultBranch = main
 [commit]
 	gpgsign = false
+[tag]
+	gpgSign = true
 [gpg]
 	program = gpg2
 [alias]
@@ -22,12 +24,22 @@
 	s = switch
 	dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 	dft = difftool
+	fixes = show -s --pretty='format:Fixes: %h (\"%s\")'
 [core]
 	editor = nvim
 	autocrlf = input
 #	pager = delta
 [help]
 	autocorrect = 50
+[b4]
+  send-endpoint-web = https://lkml.kernel.org/_b4_submit
+[patatt]
+   selector = not_default
+[sendemail]
+  smtpserver = smtp-mail.outlook.com
+  smtpuser = rsworktech@outlook.com
+  smtpencryption = tls
+  smtpserverport = 587
 [diff]
   colorMoved = default
   tool = difftastic
@@ -78,3 +90,7 @@
 	insteadOf = kde:
 [url "ssh://git@invent.kde.org/"]
 	pushInsteadOf = kde:
+[diff "man"]
+	xfuncname = ^\\.S[SHsh] .*$
+[format]
+	thread = true
