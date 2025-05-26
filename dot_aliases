@@ -77,10 +77,20 @@ alias rvbuild='extra-riscv64-build -- -d ~/.cache/pacman-pkgs-riscv:/var/cache/p
 xspawn() {
   sudo systemd-nspawn -aUD /var/lib/archbuild/extra-x86_64/$@
 }
+aurspawn() {
+  sudo systemd-nspawn -aUD /var/lib/aurbuild/x86_64/$@
+}
 rspawn() {
   sudo systemd-nspawn -aUD /var/lib/archbuild/extra-riscv64/$@
 }
 # Cloning Arch Linux package without using awkward pkgctl
 aclone(){
   git clone https://gitlab.archlinux.org/archlinux/packaging/packages/$@
+}
+
+bazel-sha256() {
+local url="$1"
+url="$1"
+echo -n "sha256-"
+curl -fsSL "$url" | sha256sum | cut -d' ' -f1 | xxd -r -p | base64
 }
