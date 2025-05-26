@@ -255,3 +255,5 @@ if [ -f "/home/kxxt/mambaforge/etc/profile.d/mamba.sh" ]; then
     . "/home/kxxt/mambaforge/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+
+. "$HOME/.cargo/env"
