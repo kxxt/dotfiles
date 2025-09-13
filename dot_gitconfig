@@ -94,3 +94,9 @@
 	xfuncname = ^\\.S[SHsh] .*$
 [format]
 	thread = true
+[trailer "changeid"]
+	key = Change-Id
+
+# # when working on personal projects
+# [includeIf "gitdir:**/personal/**/.git"]
+#   path = ~/.gitconfig.personal
